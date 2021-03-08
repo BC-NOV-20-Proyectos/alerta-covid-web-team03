@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date did:</strong>
+  <%= @test_covid.date_did %>
+</p>
+
+<p>
+  <strong>Date get result:</strong>
+  <%= @test_covid.date_get_result %>
+</p>
+
+<p>
+  <strong>Had symptoms:</strong>
+  <%= @test_covid.had_symptoms %>
+</p>
+
+<p>
+  <strong>Type test:</strong>
+  <%= @test_covid.type_test %>
+</p>
+
+<p>
+  <strong>Result:</strong>
+  <%= @test_covid.result %>
+</p>
+
+<%= link_to 'Edit', edit_test_covid_path(@test_covid) %> |
+<%= link_to 'Back', test_covids_path %>

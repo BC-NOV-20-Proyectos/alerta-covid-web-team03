@@ -1,0 +1,22 @@
+<%= form_with(model: symptom) do |form| %>
+  <% if symptom.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(symptom.errors.count, "error") %> prohibited this symptom from being saved:</h2>
+
+      <ul>
+        <% symptom.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Test Covids</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date did</th>
+      <th>Date get result</th>
+      <th>Had symptoms</th>
+      <th>Type test</th>
+      <th>Result</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @test_covids.each do |test_covid| %>
+      <tr>
+        <td><%= test_covid.date_did %></td>
+        <td><%= test_covid.date_get_result %></td>
+        <td><%= test_covid.had_symptoms %></td>
+        <td><%= test_covid.type_test %></td>
+        <td><%= test_covid.result %></td>
+        <td><%= link_to 'Show', test_covid %></td>
+        <td><%= link_to 'Edit', edit_test_covid_path(test_covid) %></td>
+        <td><%= link_to 'Destroy', test_covid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Test Covid', new_test_covid_path %>

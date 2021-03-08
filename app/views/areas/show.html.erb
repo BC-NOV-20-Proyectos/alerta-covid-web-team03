@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @area.description %>
+</p>
+
+<p>
+  <strong>Qrcode:</strong>
+  <%= @area.qrcode %>
+</p>
+
+<p>
+  <strong>Institution:</strong>
+  <%= @area.institution_id %>
+</p>
+
+<%= link_to 'Edit', edit_area_path(@area) %> |
+<%= link_to 'Back', areas_path %>

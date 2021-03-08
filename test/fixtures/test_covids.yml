@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_did: 2021-03-08
+  date_get_result: 2021-03-08
+  had_symptoms: false
+  type_test: MyString
+  result: false
+
+two:
+  date_did: 2021-03-08
+  date_get_result: 2021-03-08
+  had_symptoms: false
+  type_test: MyString
+  result: false

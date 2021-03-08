@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User History Details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User history</th>
+      <th>Symtptom</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_history_details.each do |user_history_detail| %>
+      <tr>
+        <td><%= user_history_detail.user_history_id %></td>
+        <td><%= user_history_detail.symtptom_id %></td>
+        <td><%= link_to 'Show', user_history_detail %></td>
+        <td><%= link_to 'Edit', edit_user_history_detail_path(user_history_detail) %></td>
+        <td><%= link_to 'Destroy', user_history_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User History Detail', new_user_history_detail_path %>

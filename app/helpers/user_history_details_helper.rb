@@ -1,0 +1,2 @@
+module UserHistoryDetailsHelper
+end
