@@ -57,3 +57,4 @@ gem 'devise-jwt'
 gem 'kaminari'
 gem 'rqrcode'
 gem 'cancancan'
+gem "fast_jsonapi", "~> 1.5"
