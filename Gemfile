@@ -58,3 +58,4 @@ gem 'kaminari'
 gem 'rqrcode'
 gem 'cancancan'
 gem "fast_jsonapi", "~> 1.5"
+gem "simple_form", "~> 5.1"

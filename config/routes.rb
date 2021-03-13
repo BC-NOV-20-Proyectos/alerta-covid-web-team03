@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/index'
+  root 'home#index'
   resources :test_covids
   resources :user_history_details
   resources :user_histories
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   resources :symptoms
   resources :insititutions
   devise_for :users
+  
   
 
 
