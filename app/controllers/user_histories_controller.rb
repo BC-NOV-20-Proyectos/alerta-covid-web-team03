@@ -1,3 +1,4 @@
+# User history controller web
 class UserHistoriesController < ApplicationController
   before_action :set_user_history, only: %i[ show edit update destroy ]
 

@@ -1,3 +1,4 @@
+# Symptoms controller web
 class SymptomsController < ApplicationController
   before_action :set_symptom, only: %i[ show edit update destroy ]
 

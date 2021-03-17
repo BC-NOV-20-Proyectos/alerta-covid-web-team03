@@ -1,3 +1,4 @@
+# Areas controller web
 class AreasController < ApplicationController
   before_action :set_area, only: %i[ show edit update destroy ]
 

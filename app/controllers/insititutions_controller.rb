@@ -1,3 +1,4 @@
+# Institutions controller web
 class InsititutionsController < ApplicationController
   before_action :set_insititution, only: %i[ show edit update destroy ]
 

@@ -1,3 +1,4 @@
+# Area history controller web
 class AreaHistoriesController < ApplicationController
   before_action :set_area_history, only: %i[ show edit update destroy ]
 

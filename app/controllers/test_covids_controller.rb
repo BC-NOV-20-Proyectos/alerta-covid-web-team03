@@ -1,3 +1,4 @@
+# Test covid controller web
 class TestCovidsController < ApplicationController
   before_action :set_test_covid, only: %i[ show edit update destroy ]
 
