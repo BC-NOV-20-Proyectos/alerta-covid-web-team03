@@ -1,3 +1,4 @@
+# User History controller web
 class UserHistoryDetailsController < ApplicationController
   before_action :set_user_history_detail, only: %i[ show edit update destroy ]
 
@@ -25,11 +26,9 @@ class UserHistoryDetailsController < ApplicationController
 
     respond_to do |format|
       if @user_history_detail.save
-        format.html { redirect_to @user_history_detail, notice: "User history detail was successfully created." }
-        format.json { render :show, status: :created, location: @user_history_detail }
+        respond_if_is_true_web(@user_history_detail, 'User history detail was successfully created.', :show, :created, @user_history_detail)
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user_history_detail.errors, status: :unprocessable_entity }
+        respond_if_is_false_web(:new, :unprocessable_entity, @user_history_detail.errors, :unprocessable_entity)
       end
     end
   end
@@ -38,11 +37,9 @@ class UserHistoryDetailsController < ApplicationController
   def update
     respond_to do |format|
       if @user_history_detail.update(user_history_detail_params)
-        format.html { redirect_to @user_history_detail, notice: "User history detail was successfully updated." }
-        format.json { render :show, status: :ok, location: @user_history_detail }
+        respond_if_is_true_web(@user_history_detail, 'User history detail was successfully updated.', :show, :ok, @user_history_detail)
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user_history_detail.errors, status: :unprocessable_entity }
+        respond_if_is_false_web(:new, :unprocessable_entity, @user_history_detail.errors, :unprocessable_entity)
       end
     end
   end

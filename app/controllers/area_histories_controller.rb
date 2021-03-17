@@ -1,3 +1,4 @@
+# Area history controller web
 class AreaHistoriesController < ApplicationController
   before_action :set_area_history, only: %i[ show edit update destroy ]
 
@@ -25,11 +26,9 @@ class AreaHistoriesController < ApplicationController
 
     respond_to do |format|
       if @area_history.save
-        format.html { redirect_to @area_history, notice: "Area history was successfully created." }
-        format.json { render :show, status: :created, location: @area_history }
+        respond_if_is_true_web(@area_history, 'Area history was successfully created.', :show, :created, @area_history)
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @area_history.errors, status: :unprocessable_entity }
+        respond_if_is_false_web(:new, :unprocessable_entity, @area_history.errors, :unprocessable_entity)
       end
     end
   end
@@ -38,11 +37,10 @@ class AreaHistoriesController < ApplicationController
   def update
     respond_to do |format|
       if @area_history.update(area_history_params)
-        format.html { redirect_to @area_history, notice: "Area history was successfully updated." }
-        format.json { render :show, status: :ok, location: @area_history }
+        respond_if_is_true_web(@area_history, 'Area history was successfully updated.', :show, :ok, @area_history)
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @area_history.errors, status: :unprocessable_entity }
+        respond_if_is_false_web(:edit, :unprocessable_entity, @area_history.errors, :unprocessable_entity)
+        
       end
     end
   end

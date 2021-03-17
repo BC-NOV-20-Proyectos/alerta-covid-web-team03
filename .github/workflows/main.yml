@@ -23,7 +23,7 @@ jobs:
 
       # Runs RubyCritic App
       - name: RubyCritic App
-        run: mkdir -p tmp/rubycritic && rubycritic --no-browser -p tmp/rubycritic/rubycritic-app -s 90 app config lib
+        run: mkdir -p tmp/rubycritic && rubycritic --no-browser -p tmp/rubycritic/rubycritic-app -s 85 app config lib
 
       # Runs RubyCritic on Tests
       - name: RubyCritic on Tests
