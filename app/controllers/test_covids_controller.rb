@@ -26,11 +26,9 @@ class TestCovidsController < ApplicationController
 
     respond_to do |format|
       if @test_covid.save
-        format.html { redirect_to @test_covid, notice: "Test covid was successfully created." }
-        format.json { render :show, status: :created, location: @test_covid }
+        respond_if_is_true_web(@test_covid, 'Test covid  was successfully created.', :show, :created, @test_covid)
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @test_covid.errors, status: :unprocessable_entity }
+        respond_if_is_false_web(:new, :unprocessable_entity, @test_covid.errors, :unprocessable_entity)
       end
     end
   end
@@ -39,11 +37,9 @@ class TestCovidsController < ApplicationController
   def update
     respond_to do |format|
       if @test_covid.update(test_covid_params)
-        format.html { redirect_to @test_covid, notice: "Test covid was successfully updated." }
-        format.json { render :show, status: :ok, location: @test_covid }
+        respond_if_is_true_web(@test_covid, 'Test covid  was successfully updated.', :show, :ok, @test_covid)
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @test_covid.errors, status: :unprocessable_entity }
+        respond_if_is_false_web(:edit, :unprocessable_entity, @test_covid.errors, :unprocessable_entity)
       end
     end
   end

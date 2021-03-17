@@ -26,11 +26,9 @@ class SymptomsController < ApplicationController
 
     respond_to do |format|
       if @symptom.save
-        format.html { redirect_to @symptom, notice: "Symptom was successfully created." }
-        format.json { render :show, status: :created, location: @symptom }
+        respond_if_is_true_web(@symptom, 'Symptom was successfully created.', :show, :created, @symptom)
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @symptom.errors, status: :unprocessable_entity }
+        respond_if_is_false_web(:new, :unprocessable_entity, @symptom.errors, :unprocessable_entity)
       end
     end
   end
@@ -39,11 +37,9 @@ class SymptomsController < ApplicationController
   def update
     respond_to do |format|
       if @symptom.update(symptom_params)
-        format.html { redirect_to @symptom, notice: "Symptom was successfully updated." }
-        format.json { render :show, status: :ok, location: @symptom }
+        respond_if_is_true_web(@symptom, 'Symptom was successfully created.', :show, :created, @symptom)
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @symptom.errors, status: :unprocessable_entity }
+        respond_if_is_false_web(:edit, :unprocessable_entity, @symptom.errors, :unprocessable_entity)
       end
     end
   end

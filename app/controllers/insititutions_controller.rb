@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 # Institutions controller web
-class InsititutionsController < ApplicationController
-  before_action :set_insititution, only: %i[ show edit update destroy ]
+class InstitutionsController < ApplicationController
+  before_action :set_insititution, only: %i[show edit update destroy]
 
   # GET /insititutions or /insititutions.json
   def index
@@ -8,8 +10,7 @@ class InsititutionsController < ApplicationController
   end
 
   # GET /insititutions/1 or /insititutions/1.json
-  def show
-  end
+  def show; end
 
   # GET /insititutions/new
   def new
@@ -17,8 +18,7 @@ class InsititutionsController < ApplicationController
   end
 
   # GET /insititutions/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /insititutions or /insititutions.json
   def create
@@ -26,11 +26,9 @@ class InsititutionsController < ApplicationController
 
     respond_to do |format|
       if @insititution.save
-        format.html { redirect_to @insititution, notice: "Insititution was successfully created." }
-        format.json { render :show, status: :created, location: @insititution }
+        respond_if_is_true_web(@insititution, 'Insititution was successfully created.', :show, :created, @insititution)
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @insititution.errors, status: :unprocessable_entity }
+        respond_if_is_false_web(:new, :unprocessable_entity, @insititution.errors, :unprocessable_entity)
       end
     end
   end
@@ -39,11 +37,9 @@ class InsititutionsController < ApplicationController
   def update
     respond_to do |format|
       if @insititution.update(insititution_params)
-        format.html { redirect_to @insititution, notice: "Insititution was successfully updated." }
-        format.json { render :show, status: :ok, location: @insititution }
+        respond_if_is_true_web(@insititution, 'Insititution was successfully created.', :show, :ok, @insititution)
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @insititution.errors, status: :unprocessable_entity }
+        respond_if_is_false_web(:edit, :unprocessable_entity, @insititution.errors, :unprocessable_entity)
       end
     end
   end
@@ -52,19 +48,20 @@ class InsititutionsController < ApplicationController
   def destroy
     @insititution.destroy
     respond_to do |format|
-      format.html { redirect_to insititutions_url, notice: "Insititution was successfully destroyed." }
+      format.html { redirect_to insititutions_url, notice: 'Insititution was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_insititution
-      @insititution = Insititution.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def insititution_params
-      params.require(:insititution).permit(:description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_insititution
+    @insititution = Insititution.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def insititution_params
+    params.require(:insititution).permit(:description)
+  end
 end

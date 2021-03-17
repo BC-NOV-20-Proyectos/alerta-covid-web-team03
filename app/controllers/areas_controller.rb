@@ -26,11 +26,9 @@ class AreasController < ApplicationController
 
     respond_to do |format|
       if @area.save
-        format.html { redirect_to @area, notice: "Area was successfully created." }
-        format.json { render :show, status: :created, location: @area }
+        respond_if_is_true_web(@area, 'Symptom was successfully created.', :show, :created, @area)
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @area.errors, status: :unprocessable_entity }
+        respond_if_is_false_web(:new, :unprocessable_entity, @area.errors, :unprocessable_entity)
       end
     end
   end
@@ -39,11 +37,9 @@ class AreasController < ApplicationController
   def update
     respond_to do |format|
       if @area.update(area_params)
-        format.html { redirect_to @area, notice: "Area was successfully updated." }
-        format.json { render :show, status: :ok, location: @area }
+        respond_if_is_true_web(@area, 'Area was successfully updated.', :show, :ok, @area)
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @area.errors, status: :unprocessable_entity }
+        respond_if_is_false_web(:new, :unprocessable_entity, @area.errors, :unprocessable_entity)
       end
     end
   end

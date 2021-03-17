@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :area_histories
   resources :areas
   resources :symptoms
-  resources :insititutions
+  resources :institutions
   devise_for :users
   
   namespace :api, defaults: { format: :json } do
