@@ -1,2 +1,0 @@
-class Insititution < ApplicationRecord
-end
