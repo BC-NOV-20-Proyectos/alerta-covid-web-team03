@@ -57,4 +57,6 @@ gem 'devise-jwt'
 gem 'kaminari'
 gem 'rqrcode'
 gem 'cancancan'
+gem 'rolify'
 gem "fast_jsonapi", "~> 1.5"
+gem "rubycritic", "~> 4.6"
