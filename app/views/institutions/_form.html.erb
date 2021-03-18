@@ -1,10 +1,10 @@
-<%= form_with(model: insititution) do |form| %>
-  <% if insititution.errors.any? %>
+<%= form_with(model: institution) do |form| %>
+  <% if institution.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(insititution.errors.count, "error") %> prohibited this insititution from being saved:</h2>
+      <h2><%= pluralize(institution.errors.count, "error") %> prohibited this institution from being saved:</h2>
 
       <ul>
-        <% insititution.errors.each do |error| %>
+        <% institution.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
