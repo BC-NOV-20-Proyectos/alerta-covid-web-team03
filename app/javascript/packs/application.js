@@ -11,7 +11,7 @@ import 'bootstrap';
 import '../stylesheets/application';
 require('admin-lte');
 import "@fortawesome/fontawesome-free/js/all";
-
+window.jQuery = window.$ = require('jquery')
 
 Rails.start()
 Turbolinks.start()
