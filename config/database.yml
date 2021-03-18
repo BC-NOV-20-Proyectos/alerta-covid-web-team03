@@ -24,7 +24,7 @@ default: &default
 development:
   <<: *default
   database: covidapp_development
-  username: user
+  username: diego
   password: password
 
   # Connect on a TCP socket. Omitted by default since the client uses a
