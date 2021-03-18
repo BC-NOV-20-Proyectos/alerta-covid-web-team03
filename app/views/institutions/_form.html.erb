@@ -1,22 +1,25 @@
-<%= form_with(model: institution) do |form| %>
-  <% if institution.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(institution.errors.count, "error") %> prohibited this institution from being saved:</h2>
-
-      <ul>
-        <% institution.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class="modal-dialog">
+<% @institution= Institution.new if @institution.nil? %>
+<%  if request.path.include?('edit') then text = 'Edit Institution' else text = 'Create a new Institution' end %>
+<%= simple_form_for(@institution, remote: true, html: { class: "form", role: 'form'}) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= text %></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-inputs form-group">
+        <%= f.input :description, class: 'form-control' %>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= f.submit "Save institution", :class => 'btn btn-primary create-button' %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+    <% end %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
