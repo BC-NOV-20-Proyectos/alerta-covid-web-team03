@@ -6,7 +6,11 @@ class InstitutionsController < ApplicationController
 
   # GET /institutions or /institutions.json
   def index
-    @institutions = Institution.all
+    @institutions = Institution.all.page(params[:page]).per(5)
+  end
+
+  def search
+    @institutions = Institution.search(params[:search]).page(params[:page]).per(5)
   end
 
   # GET /institutions/1 or /institutions/1.json
@@ -22,13 +26,13 @@ class InstitutionsController < ApplicationController
 
   # POST /institutions or /institutions.json
   def create
-    @institution = institution.new(institution_params)
+    @institution = Institution.new(institution_params)
 
     respond_to do |format|
       if @institution.save
-        respond_if_is_true_web(@institution, 'institution was successfully created.', :show, :created, @institution)
+        respond_if_is_true_web(format, institutions_url, 'institution was successfully created.', :show, :created, @institution)
       else
-        respond_if_is_false_web(:new, :unprocessable_entity, @institution.errors, :unprocessable_entity)
+        respond_if_is_false_web(format, :new, :unprocessable_entity, @institution.errors, :unprocessable_entity)
       end
     end
   end
@@ -37,9 +41,9 @@ class InstitutionsController < ApplicationController
   def update
     respond_to do |format|
       if @institution.update(institution_params)
-        respond_if_is_true_web(@institution, 'institution was successfully created.', :show, :ok, @institution)
+        respond_if_is_true_web(format, institutions_url, 'institution was successfully updated.', :show, :ok, @institution)
       else
-        respond_if_is_false_web(:edit, :unprocessable_entity, @institution.errors, :unprocessable_entity)
+        respond_if_is_false_web(format, :edit, :unprocessable_entity, @institution.errors, :unprocessable_entity)
       end
     end
   end
@@ -57,11 +61,11 @@ class InstitutionsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_institution
-    @institution = institution.find(params[:id])
+    @institution = Institution.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
   def institution_params
-    params.require(:institution).permit(:description)
+    params.require(:institution).permit(:description, :search)
   end
 end
