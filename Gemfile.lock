@@ -115,6 +115,7 @@ GEM
     erubis (2.7.0)
     fast_jsonapi (1.5)
       activesupport (>= 4.2)
+    ffi (1.15.0)
     ffi (1.15.0-x64-mingw32)
     flay (2.12.1)
       erubis (~> 2.7.0)
@@ -163,10 +164,13 @@ GEM
     nio4r (2.5.7)
     nokogiri (1.11.1-x64-mingw32)
       racc (~> 1.4)
+    nokogiri (1.11.1-x86_64-linux)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     parser (3.0.0.0)
       ast (~> 2.4.1)
     path_expander (1.1.0)
+    pg (1.2.3)
     pg (1.2.3-x64-mingw32)
     psych (3.3.1)
     public_suffix (4.0.6)
@@ -237,6 +241,8 @@ GEM
     rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     sassc (2.4.0-x64-mingw32)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -312,6 +318,7 @@ GEM
 
 PLATFORMS
   x64-mingw32
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.4.4)
