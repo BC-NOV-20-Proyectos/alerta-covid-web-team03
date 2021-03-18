@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   get 'users/index'
-  get 'users/show' => "users#show"
-  
-  root "users#index"
-  
+  get 'home#index'
   resources :test_covids
   resources :user_history_details
   resources :user_histories
@@ -11,9 +8,9 @@ Rails.application.routes.draw do
   resources :areas
   resources :symptoms
   resources :insititutions
-  
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
+  post 'institutions/search', :to => 'institutions#search'
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
