@@ -1,27 +1,44 @@
 <p id="notice"><%= notice %></p>
-
-<h1>institutions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @institutions.each do |institution| %>
-      <tr>
-        <td><%= institution.description %></td>
-        <td><%= link_to 'Show', institution %></td>
-        <td><%= link_to 'Edit', edit_institution_path(institution) %></td>
-        <td><%= link_to 'Destroy', institution, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New institution', new_institution_path %>
+<div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+              <div class="card-tools">
+              <a class="btn btn-success create-button" data-remote="true" href="#" data-toggle="modal" data-target="#institution-modal">New Institution</a>
+                </div>
+                <div class="card-tools1">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <%= form_tag(institutions_search_path, method: "post", remote: true, authenticity_token: true, role: "form",class: "form") do %>
+                      <%= text_field_tag('search', nil, placeholder: 'Enter search term...', class: 'form-control float-left') %>
+                      <div class="input-group-append">
+                      <%= submit_tag("Search", class:"btn btn-default") %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="institution-modal">
+                <%= render 'form'%>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>Description</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="institutions-table-body">
+                     <%= render 'search', remote: true %>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <%= paginate @institutions %>
+              </div>
+            </div>
+            <!-- /.card -->
+          </div>
+</div>
