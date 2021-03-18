@@ -1,0 +1,15 @@
+<% @institutions.each do |institution| %>
+  <tr>
+    <td><%= institution.description %></td>
+    <td><%= link_to edit_institution_path(institution), remote: true do %>
+      <i class="far fa-edit"></i>
+      <span>Edit</span>
+    <% end %> 
+    <%= link_to institution, method: :delete, data: 
+    { confirm: 'Are you sure?' } do %>
+        <i class="fas fa-user-times"></i>
+      <span>Delete</span>
+    <% end %>
+    </td>
+  </tr>
+<% end %>

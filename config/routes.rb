@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :symptoms
   resources :institutions
   devise_for :users
+
+  post 'institutions/search', :to => 'institutions#search'
   
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
