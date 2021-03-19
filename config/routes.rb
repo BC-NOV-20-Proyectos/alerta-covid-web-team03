@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   post 'institutions/search', :to => 'institutions#search'
+  post 'areas/search', :to => 'areas#search'
+
   
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
