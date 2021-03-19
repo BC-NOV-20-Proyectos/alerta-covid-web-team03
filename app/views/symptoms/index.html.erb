@@ -6,16 +6,16 @@
               <div class="card-tools">
               <a class="btn btn-success create-button" data-remote="true" href="#" data-toggle="modal" data-target="#symptom-modal">New Symptom</a>
                 </div>
-                <!--div class="card-tools1">
+                <div class="card-tools1">
                   <div class="input-group input-group-sm" style="width: 150px;">
-                    <%# form_tag(symptoms_search_path, method: "post", remote: true, authenticity_token: true, role: "form",class: "form") do %>
-                      <#= text_field_tag('search', nil, placeholder: 'Enter search term...', class: 'form-control float-left') %>
+                    <%=form_tag(symptoms_search_path, method: "post", remote: true, authenticity_token: true, role: "form",class: "form") do %>
+                      <%= text_field_tag('search', nil, placeholder: 'Enter search term...', class: 'form-control float-left') %>
                       <div class="input-group-append">
-                      <#= submit_tag("Search", class:"btn btn-default") %>
+                      <%= submit_tag("Search", class:"btn btn-default") %>
                       </div>
-                    <# end %>
+                    <%end%>
                   </div>
-                </div--!>
+                </div>
               </div>
               <div class="modal fade" id="symptom-modal">
                 <%= render 'form'%>
@@ -34,6 +34,10 @@
                   </tbody>
                 </table>
               </div>
+              <!-- /.card-body -->
+              <!--div class="card-footer">
+                <#= paginate @symptoms %>
+              </div--!>
             </div>
             <!-- /.card -->
           </div>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   post 'institutions/search', :to => 'institutions#search'
   post 'areas/search', :to => 'areas#search'
+  post 'symptoms/search', :to => 'symptoms#search'
 
   
   namespace :api, defaults: { format: :json } do
