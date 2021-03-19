@@ -115,11 +115,7 @@ GEM
     erubis (2.7.0)
     fast_jsonapi (1.5)
       activesupport (>= 4.2)
-
-
-
     ffi (1.15.0)
-
     ffi (1.15.0-x64-mingw32)
     flay (2.12.1)
       erubis (~> 2.7.0)
@@ -174,11 +170,7 @@ GEM
     parser (3.0.0.0)
       ast (~> 2.4.1)
     path_expander (1.1.0)
-
-
-
     pg (1.2.3)
-
     pg (1.2.3-x64-mingw32)
     psych (3.3.1)
     public_suffix (4.0.6)
@@ -265,11 +257,9 @@ GEM
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
     sexp_processor (4.15.2)
-
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
-
     simplecov (0.20.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
