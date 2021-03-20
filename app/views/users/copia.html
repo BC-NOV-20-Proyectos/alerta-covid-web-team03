@@ -4,12 +4,12 @@
             <div class="card">
               <div class="card-header">
               <div class="card-tools">
-              <a id="new-user-btn" class="btn btn-success create-button" data-remote="true" href="/users/sign_up" data-toggle="modal" data-target="#user-modal">New user</a>
+              <a class="btn btn-success create-button" data-remote="true" href="#" data-toggle="modal" data-target="#area-modal">New Area</a>
                 </div>
                 <div class="card-tools1">
                   <div class="input-group input-group-sm" style="width: 150px;">
                     <%= form_tag(areas_search_path, method: "post", remote: true, authenticity_token: true, role: "form",class: "form") do %>
-                      <%= text_field_tag('search', nil, placeholder: 'Search users...', class: 'form-control float-left') %>
+                      <%= text_field_tag('search', nil, placeholder: 'Search areas...', class: 'form-control float-left') %>
                       <div class="input-group-append">
                       <%= submit_tag("Search", class:"btn btn-default") %>
                       </div>
@@ -17,9 +17,8 @@
                   </div>
                 </div>
               </div>
-              <!--considerar esta parte-->
-              <div class="modal fade" id="user-modal">
-                
+              <div class="modal fade" id="area-modal">
+                <%= render 'form'%>
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
@@ -29,36 +28,44 @@
                       <th>Email</th>
                       <th>Name</th>
                       <th>Email</th>
-                      <th>control_number</th>
                     </tr>
                   </thead>
                   <tbody id="areas-table-body">
-                    <% @users.each do |user| %>
-                    <tr>
-                      <td><%= user.name %></td>
-                      <td><%= user.lasname %></td>
-                      <td><%= user.email %></td>
-                      <td><%= user.control_number %></td>
-                      <td><i class="far fa-edit"></i><%= link_to 'Edit', edit_user_registration_path(user), remote: true %>
-                      &nbsp <i class="fas fa-user-times"></i> <%= link_to 'Delete', user_registration_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                    </tr>
-                    <% end %>
+                     <%= render 'search', remote: true %>
                   </tbody>
                 </table>
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
-                
+                <%= paginate @areas %>
               </div>
             </div>
             <!-- /.card -->
           </div>
 </div>
 
-<script>
-$('#new-user-btn').click(function(){
 
-  $("#user-modal").html("<%= j render '/devise/registrations/new' %>");
-  $('#user-modal').modal('show');
-})
-</script>
+
+<h1>Admin crud</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.lasname %></td>
+        <td><%= user.email %></td>
+        <td><%= user.control_number %></td>
+        <td><i class="far fa-edit"></i><%= link_to 'Edit', edit_user_registration_path(user), remote: true %>
+      &nbsp <i class="fas fa-user-times"></i> <%= link_to 'Delete', user_registration_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

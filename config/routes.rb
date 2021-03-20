@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :area_histories
   resources :areas
   resources :symptoms
+  get '/users' => "users#index"
+  get '/users/register' => "users/registrations#new"
 
   resources :institutions
   devise_for :users, controllers: { registrations: 'users/registrations' }
