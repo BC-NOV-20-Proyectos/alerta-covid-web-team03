@@ -24,6 +24,10 @@ default: &default
 development:
   <<: *default
   database: covidapp_development
+  username: root
+  password: teamgodzilla**00
+  host: covid_db
+
 
   #username: diego
   #password: password
