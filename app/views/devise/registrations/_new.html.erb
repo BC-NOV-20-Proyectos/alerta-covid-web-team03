@@ -12,22 +12,28 @@
     <%= f.input :name,
                 required: true,
                 autofocus: true,
+                value: "cosme",
                 input_html: { autocomplete: "name" }%>
     <%= f.input :lasname,
+    value: "fulanito",
                 required: true,
                 input_html: { autocomplete: "lasname" }%>
     <%= f.input :control_number,
                 required: true,
+                value: "1000",
                 input_html: { autocomplete: "control_number" }%>
     <%= f.input :email,
                 required: true,
+                value: "cosme@fulanito.com",
                 input_html: { autocomplete: "email" }%>
     <%= f.input :password,
                 required: true,
+                value: "CosmeFulanitox121",
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: true,
+                value: "CosmeFulanitox121",
                 input_html: { autocomplete: "new-password" } %>
   </div>
       </div>

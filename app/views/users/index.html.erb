@@ -61,4 +61,10 @@ $('#new-user-btn').click(function(){
   $("#user-modal").html("<%= j render '/devise/registrations/new' %>");
   $('#user-modal').modal('show');
 })
+
+$('.far fa-edit').click(function(){
+
+  $("#user-modal").html("<%= j render '/devise/registrations/edit' %>");
+  $('#user-modal').modal('show');
+})
 </script>
