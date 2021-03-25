@@ -1,0 +1,10 @@
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.lasname %></td>
+    <td><%= user.email %></td>
+    <td><%= user.control_number %></td>
+    <td><i class="far fa-edit"></i><%= link_to 'Edit', admin_user_path(user), remote: true %>
+    &nbsp <i class="fas fa-user-times"></i> <%= link_to 'Delete', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
