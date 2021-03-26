@@ -1,6 +1,6 @@
 <div class="modal-dialog">
 <%  if request.path.include?('edit') then text = 'Edit User' else text = 'Create a new user' end %>
-<%= simple_form_for(@users, :url => admin_user_path(@users)) do |f| %>
+<%= simple_form_for(@user, :url => admin_user_path(@user)) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
     <div class="modal-content">

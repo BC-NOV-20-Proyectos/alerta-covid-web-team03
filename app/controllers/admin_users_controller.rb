@@ -1,4 +1,5 @@
 class AdminUsersController < ApplicationController
+  
 
   def new
     @user = User.new
@@ -20,7 +21,7 @@ class AdminUsersController < ApplicationController
     respond_to do |format|
       if @user.save
         #para que son el :show y :created | pareametros que son pasados a repond_if_is_true_web
-        respond_if_is_true_web(format, admin_users_path, 'Area was successfully created', :show, :created, @user)
+        respond_if_is_true_web(format, admin_users_path, 'User was successfully created', :show, :created, @user)
       else
         respond_if_is_false_web(format, :new, :unprocessable_entity, @user.errors, :unprocessable_entity)
       end
@@ -32,12 +33,14 @@ class AdminUsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
-        respond_if_is_true_web(format, admin_users_path, 'Area was successfully created', :show, :created, @user)
+        respond_if_is_true_web(format, admin_users_path, 'User was successfully updated', :show, :created, @user)
       else
         respond_if_is_false_web(format, :new, :unprocessable_entity, @user.errors, :unprocessable_entity)
       end
@@ -55,7 +58,7 @@ class AdminUsersController < ApplicationController
 
   private
   def set_user
-    @user = User.find(params["id"])
+    @user = User.find(params[:id])
   end
 
   def user_params
