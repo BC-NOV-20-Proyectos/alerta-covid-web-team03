@@ -13,10 +13,8 @@ Rails.application.routes.draw do
 
   post 'institutions/search', :to => 'institutions#search'
   post 'areas/search', :to => 'areas#search'
-  post 'admin_users/search', :to => 'admin_users#search'
   post 'symptoms/search', :to => 'symptoms#search'
-
-
+  post 'admin_users/search', :to => 'admin_users#search'
   
   namespace :api, defaults: { format: :json } do
     namespace :v1 do

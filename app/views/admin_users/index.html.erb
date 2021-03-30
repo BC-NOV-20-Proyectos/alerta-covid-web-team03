@@ -4,8 +4,7 @@
     <div class="card">
       <div class="card-header">
         <div class="card-tools">
-          <i class="far fa-edit"></i><%= link_to 'New', new_admin_user_path, remote: true %>
-          <a id="new-user-btn" class="btn btn-success create-button" data-remote="true" href="/users/sign_up" data-toggle="modal" data-target="#user-modal">New user</a>
+          <%= link_to 'New User', new_admin_user_path, remote: true, :class => "btn btn-success" %>
         </div>
         <div class="card-tools1">
           <div class="input-group input-group-sm" style="width: 150px;">
@@ -27,8 +26,8 @@
         <table class="table table-hover text-nowrap">
           <thead>
             <tr>
-              <th>Email</th>
               <th>Name</th>
+              <th>Last Name</th>
               <th>Email</th>
               <th>control_number</th>
             </tr>

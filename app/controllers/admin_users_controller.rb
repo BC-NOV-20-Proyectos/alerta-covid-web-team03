@@ -7,11 +7,11 @@ class AdminUsersController < ApplicationController
 
   def index
     #investigar para que sirve el .page y .per
-    @users = User.all.page(params[:page]).per(35)
+    @users = User.all.page(params[:page]).per(50)
   end
 
   def search
-    @users = User.search(params{:search}).page(paramas[:page]).per(4)
+    @users = User.search(params[:search]).page(params[:page]).per(10)
   end
 
   def create
