@@ -7,13 +7,14 @@ Rails.application.routes.draw do
   resources :area_histories
   resources :areas
   resources :symptoms
-
   resources :institutions
   devise_for :users, controllers: { registrations: 'users/registrations' }
+  resources :admin_users
 
   post 'institutions/search', :to => 'institutions#search'
   post 'areas/search', :to => 'areas#search'
   post 'symptoms/search', :to => 'symptoms#search'
+  post 'admin_users/search', :to => 'admin_users#search'
 
   
   namespace :api, defaults: { format: :json } do
