@@ -7,6 +7,10 @@ class SymptomsController < ApplicationController
     @symptoms = Symptom.all
   end
 
+  def search
+    @symptoms = Symptom.search(params[:search]).page(params[:page]).per(4)    
+  end
+
   # GET /symptoms/1 or /symptoms/1.json
   def show
   end
@@ -26,9 +30,9 @@ class SymptomsController < ApplicationController
 
     respond_to do |format|
       if @symptom.save
-        respond_if_is_true_web(@symptom, 'Symptom was successfully created.', :show, :created, @symptom)
+        respond_if_is_true_web(format,symptoms_url, 'Symptom was successfully created.', :show, :created, @symptom)
       else
-        respond_if_is_false_web(:new, :unprocessable_entity, @symptom.errors, :unprocessable_entity)
+        respond_if_is_false_web(format,:new, :unprocessable_entity, @symptom.errors, :unprocessable_entity)
       end
     end
   end
@@ -37,9 +41,9 @@ class SymptomsController < ApplicationController
   def update
     respond_to do |format|
       if @symptom.update(symptom_params)
-        respond_if_is_true_web(@symptom, 'Symptom was successfully created.', :show, :created, @symptom)
+        respond_if_is_true_web(format,symptoms_url, 'Symptom was successfully created.', :show, :created, @symptom)
       else
-        respond_if_is_false_web(:edit, :unprocessable_entity, @symptom.errors, :unprocessable_entity)
+        respond_if_is_false_web(format,:edit, :unprocessable_entity, @symptom.errors, :unprocessable_entity)
       end
     end
   end
@@ -61,6 +65,6 @@ class SymptomsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def symptom_params
-      params.require(:symptom).permit(:description)
+      params.require(:symptom).permit(:description,:search)
     end
 end
