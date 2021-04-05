@@ -11,4 +11,12 @@ class User < ApplicationRecord
                 exp: 1.days.from_now.to_i },
                Rails.application.secrets.secret_key_base)
   end
+
+  def self.search(text)
+    if text.blank?  # blank? covers both nil and empty string
+      all
+    else
+      where('name LIKE ? OR lasname LIKE ? OR email LIKE ?', "%#{text}%", "%#{text}%", "%#{text}%")
+    end
+  end
 end
