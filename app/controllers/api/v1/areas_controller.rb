@@ -1,5 +1,5 @@
 # Areas controller web
-class API::V1::AreasController < ApplicationController
+class API::V1::AreasController <  API::V1::ApplicationAPIController 
   before_action :set_area, only: %i[ show ]
 
   # GET /areas or /areas.json

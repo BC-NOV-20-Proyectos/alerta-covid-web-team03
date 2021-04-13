@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Institutions controller web
-class API::V1::InstitutionsController < ApplicationController
+class API::V1::InstitutionsController < API::V1::ApplicationAPIController 
   before_action :set_institution, only: %i[show]
 
   # GET /institutions or /institutions.json

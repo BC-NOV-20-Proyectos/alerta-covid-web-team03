@@ -1,5 +1,5 @@
 # Symptoms controller web
-class API::V1::SymptomsController < ApplicationController
+class API::V1::SymptomsController < API::V1::ApplicationAPIController 
   before_action :set_symptom, only: %i[ show ]
 
   # GET /symptoms or /symptoms.json
