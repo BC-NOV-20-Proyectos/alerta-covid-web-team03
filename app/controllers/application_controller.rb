@@ -1,3 +1,4 @@
+#Application Controller base class
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   def respond_if_is_true_web(format, to, msg, json_action, json_status, json_location)

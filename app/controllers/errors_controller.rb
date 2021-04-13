@@ -1,3 +1,4 @@
+#Class for catch errors on the app
 class ErrorsController < ApplicationController
   def not_found
     render status: 404
