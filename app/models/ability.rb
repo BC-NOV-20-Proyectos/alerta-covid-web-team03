@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+#class ability for set or unset ability through devise
 class Ability
   include CanCan::Ability
 

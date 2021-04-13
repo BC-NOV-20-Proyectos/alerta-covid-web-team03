@@ -1,6 +1,6 @@
+#Admin controller for users.
 class AdminUsersController < ApplicationController
   
-
   def new
     @user = User.new
   end

@@ -1,3 +1,4 @@
+#User model
 class User < ApplicationRecord
   resourcify
   rolify

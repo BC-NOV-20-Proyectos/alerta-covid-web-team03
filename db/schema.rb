@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_18_204619) do
+ActiveRecord::Schema.define(version: 2021_04_12_234614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_03_18_204619) do
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
-
+  
   create_table "area_histories", force: :cascade do |t|
     t.datetime "date"
     t.bigint "user_id", null: false
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(version: 2021_03_18_204619) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "description"
+    t.string "qr_code"
+    t.bigint "institution_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["institution_id"], name: "index_places_on_institution_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -118,6 +127,7 @@ ActiveRecord::Schema.define(version: 2021_03_18_204619) do
 
   add_foreign_key "area_histories", "users"
   add_foreign_key "areas", "institutions"
+  add_foreign_key "places", "institutions"
   add_foreign_key "user_histories", "users"
   add_foreign_key "user_history_details", "symptoms"
   add_foreign_key "user_history_details", "user_histories"
