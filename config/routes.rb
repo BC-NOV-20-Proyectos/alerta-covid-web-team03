@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :institutions
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :admin_users
+  resources :places
 
   post 'institutions/search', :to => 'institutions#search'
   post 'areas/search', :to => 'areas#search'
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
 	  resources :symptoms
 	  resources :institutions
 	  devise_for :users
+    resources :places
 
     post 'institutions/search', :to => 'institutions#search'
     end
