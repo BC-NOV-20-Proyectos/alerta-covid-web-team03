@@ -1,14 +1,15 @@
+#Module api for places
 class API::V1::PlacesController <  API::V1::ApplicationAPIController
   load_and_authorize_resource
   before_action :set_place, only: %i[ show edit update destroy ]
   # GET /places or /places.json
   def index
-    @places = Place.all.page(params[:page]).per(4)
+    @places = Place.all.page(params[:page])
     render json: PlaceSerializer.new(@places).serialized_json
   end
 
   def search
-    @places = Place.search(params[:search]).page(params[:page]).per(4)
+    @places = Place.search(params[:search]).page(params[:page])
     render json: PlaceSerializer.new(@places).serialized_json
   end
 
@@ -16,7 +17,7 @@ class API::V1::PlacesController <  API::V1::ApplicationAPIController
   def show
     options = {}
     options[:include] = [:place, :'place.description']
-    render json: PlaceHistorySerializer.new(@place_history, options).serialized_json
+    render json: PlaceSerializer.new(@place, options).serialized_json
   end
 
   # GET /places/new
@@ -24,9 +25,6 @@ class API::V1::PlacesController <  API::V1::ApplicationAPIController
     @place = Place.new
   end
 
-  # GET /places/1/edit
-  def edit
-  end
 
   # POST /places or /places.json
   def create
@@ -49,14 +47,6 @@ class API::V1::PlacesController <  API::V1::ApplicationAPIController
     end
   end
 
-  # DELETE /places/1 or /places/1.json
-  def destroy
-    @place.destroy
-    respond_to do |format|
-      format.html { redirect_to places_url, notice: "Place was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
