@@ -29,7 +29,16 @@ Rails.application.routes.draw do
 	  resources :areas
 	  resources :symptoms
 	  resources :institutions
-	  devise_for :users
+    devise_for :users,
+    defaults: { format: :json },
+    path: '',
+    path_names: {
+      sign_in: 'login',
+      sign_out: 'logout'
+    },
+    controllers: {
+      sessions: 'api/v1/users/sessions'
+    }
     resources :places
 
     post 'institutions/search', :to => 'institutions#search'

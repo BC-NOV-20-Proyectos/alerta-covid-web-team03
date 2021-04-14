@@ -1,3 +1,4 @@
+include Devise::JWT::RevocationStrategies::Denylist 
 #User model
 class User < ApplicationRecord
   resourcify
@@ -5,7 +6,15 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist
+
+  def self.search(text)
+    if text.blank?  # blank? covers both nil and empty string
+      all
+    else
+      where('name LIKE ? or lasname LIKE ? or email LIKE ?', "%#{text}%", "%#{text}%", "%#{text}%")
+    end
+  end
 
   def generate_jwt
   	JWT.encode({ id: id,
@@ -13,11 +22,8 @@ class User < ApplicationRecord
                Rails.application.secrets.secret_key_base)
   end
 
-  def self.search(text)
-    if text.blank?  # blank? covers both nil and empty string
-      all
-    else
-      where('name LIKE ? OR lasname LIKE ? OR email LIKE ?', "%#{text}%", "%#{text}%", "%#{text}%")
-    end
+
+  def fullname
+    "#{name}, #{lasname}"
   end
 end

@@ -12,19 +12,17 @@
 
 ActiveRecord::Schema.define(version: 2021_04_12_234614) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admins", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_admins_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  create_table "allowlisted_jwts", force: :cascade do |t|
+    t.string "jti", null: false
+    t.string "aud"
+    t.datetime "exp", null: false
+    t.bigint "users_id", null: false
+    t.index ["jti"], name: "index_allowlisted_jwts_on_jti", unique: true
+    t.index ["users_id"], name: "index_allowlisted_jwts_on_users_id"
   end
   
   create_table "area_histories", force: :cascade do |t|
@@ -50,6 +48,12 @@ ActiveRecord::Schema.define(version: 2021_04_12_234614) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "jwt_denylist", force: :cascade do |t|
+    t.string "jti", null: false
+    t.datetime "exp", null: false
+    t.index ["jti"], name: "index_jwt_denylist_on_jti"
+  end
+  
   create_table "places", force: :cascade do |t|
     t.string "description"
     t.string "qr_code"
@@ -125,6 +129,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_234614) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "allowlisted_jwts", "users", column: "users_id", on_delete: :cascade
   add_foreign_key "area_histories", "users"
   add_foreign_key "areas", "institutions"
   add_foreign_key "places", "institutions"
