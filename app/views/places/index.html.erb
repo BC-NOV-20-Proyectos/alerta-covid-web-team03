@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+              <div class="card-tools">
+              <a class="btn btn-success create-button" data-remote="true" href="#" data-toggle="modal" data-target="#place-modal">New Place</a>
+                </div>
+                <div class="card-tools1">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <%= form_tag(places_search_path, method: "post", remote: true, authenticity_token: true, role: "form",class: "form") do %>
+                      <%= text_field_tag('search', nil, placeholder: 'Search areas...', class: 'form-control float-left') %>
+                      <div class="input-group-append">
+                      <%= submit_tag("Search", class:"btn btn-default") %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="place-modal">
+                <%= render 'form'%>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>Institution</th>
+                      <th>Place</th>
+                      <th>QR Code</th>
+                    </tr>
+                  </thead>
+                  <tbody id="places-table-body">
+                     <%= render 'search', remote: true %>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <%= paginate @places %>
+              </div>
+            </div>
+            <!-- /.card -->
+          </div>
+</div>

@@ -1,4 +1,5 @@
 include Devise::JWT::RevocationStrategies::Denylist 
+#User model
 class User < ApplicationRecord
   resourcify
   rolify

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'errors/not_found'
+  get 'errors/internal_server_error'
   get 'home/index'
   root 'home#index'
   resources :test_covids
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
   resources :institutions
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :admin_users
+  resources :places
 
   post 'institutions/search', :to => 'institutions#search'
   post 'areas/search', :to => 'areas#search'
@@ -36,19 +39,12 @@ Rails.application.routes.draw do
     controllers: {
       sessions: 'api/v1/users/sessions'
     }
-
-
-    # devise_scope :user do
-    #   post '/signup', to: 'registrations#create'
-    #   post '/login', to: 'sessions#create'
-    #   delete 'logout', to: 'sessions#destroy'
-    # end
+    resources :places
 
     post 'institutions/search', :to => 'institutions#search'
     end
   end
 
-
-
-
+  match "/404", to: "errors#not_found", via: :all
+  match "/500", to: "errors#internal_server_error", via: :all
 end
