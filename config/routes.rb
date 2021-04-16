@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :areas
   resources :symptoms
   resources :institutions
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions'  }
   resources :admin_users
   resources :places
 

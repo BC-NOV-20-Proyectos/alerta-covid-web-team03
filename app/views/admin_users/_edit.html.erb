@@ -24,6 +24,14 @@
             <%= f.input :email, class: 'form-control' %>
           </div>
           <div class="form-inputs form-group">
+            <%= f.input :institution_id do %> <%= f.select :institution_id, Institution.all.map { |r| [r.description, r.id] }, include_blank: false %> 
+            <% end %>
+          </div>
+          <div class="form-inputs form-group">
+            <%= f.input :area_id do %> <%= f.select :area_id, Area.all.map { |r| [r.description, r.id] }, include_blank: false %> 
+            <% end %>
+          </div>
+          <div class="form-inputs form-group">
             <%= f.input :password, class: 'form-control' %>
           </div>
           <div class="form-inputs form-group">

@@ -6,7 +6,9 @@ environment.plugins.append('Provide',
     new webpack.ProvidePlugin({
         $: 'jquery',
         jQuery: 'jquery',
-        Popper: ['popper.js', 'default']
+        daterangepicker: 'daterangepicker',
+        Popper: ['popper.js', 'default'],
+        moment: 'moment'
     })
 )
 

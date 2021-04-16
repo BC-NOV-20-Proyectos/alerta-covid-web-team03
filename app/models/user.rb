@@ -3,6 +3,8 @@ include Devise::JWT::RevocationStrategies::Denylist
 class User < ApplicationRecord
   resourcify
   rolify
+  belongs_to :institution
+  belongs_to :area
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
