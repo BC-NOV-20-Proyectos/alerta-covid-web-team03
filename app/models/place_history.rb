@@ -1,3 +1,4 @@
+# Model for PlaceHistory
 class PlaceHistory < ApplicationRecord
   belongs_to :user
   belongs_to :place
