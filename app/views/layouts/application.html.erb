@@ -33,6 +33,7 @@
 
           <div class="content container-fluid">
             <div class="container-fluid">
+            
               <%= yield %>
             </div>
           </div>
@@ -40,7 +41,11 @@
         <%= render "layouts/footer" %>
       <div>
     </body>
-    <% else %>  
+    <% elsif   request.path  == '/password/reset' %> 
+     <%= render "password_resets/reset" %>
+     <% elsif   request.path.include? '/password/reset/edit' %> 
+     <%= render "password_resets/edit" %>
+    <% else %> 
       <%= render "devise/sessions/new" %>
     <%end%>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

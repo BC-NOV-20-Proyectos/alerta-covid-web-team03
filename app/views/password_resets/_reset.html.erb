@@ -1,0 +1,20 @@
+<div class="login-box login-page mx-auto w-100" >
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">
+        <h2>Forgot your password?</h2>
+      </p>
+      <%= form_with url: password_reset_path do |form| %>
+        <div class="mb-3">
+          <%= form.label :email %>
+          <%= form.text_field :email, class: "form-control", placeholder: "admin@example.com" %>
+        </div>
+        <div class="mb-3">
+          <%= form.submit "Reset Password", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+      <!-- /.login-card-body -->
+    </div>
+  </div>
+  <!-- /.login-box -->
