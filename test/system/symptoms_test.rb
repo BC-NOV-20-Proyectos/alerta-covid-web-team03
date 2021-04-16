@@ -1,5 +1,5 @@
 require "application_system_test_case"
-
+#Test for SymptomsTest
 class SymptomsTest < ApplicationSystemTestCase
   setup do
     @symptom = symptoms(:one)

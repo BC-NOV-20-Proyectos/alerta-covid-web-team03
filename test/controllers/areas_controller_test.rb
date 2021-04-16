@@ -1,5 +1,5 @@
 require "test_helper"
-
+#Test for AreasControllerTest
 class AreasControllerTest < ActionDispatch::IntegrationTest
   setup do
     @area = areas(:one)

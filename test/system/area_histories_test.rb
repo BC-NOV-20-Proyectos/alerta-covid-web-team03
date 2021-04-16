@@ -1,5 +1,5 @@
 require "application_system_test_case"
-
+#Test for AreaHistoriesTest
 class AreaHistoriesTest < ApplicationSystemTestCase
   setup do
     @area_history = area_histories(:one)

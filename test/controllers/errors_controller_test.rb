@@ -1,5 +1,5 @@
 require "test_helper"
-
+#Test for ErrorsControllerTest
 class ErrorsControllerTest < ActionDispatch::IntegrationTest
   test "should get not_found" do
     get errors_not_found_url

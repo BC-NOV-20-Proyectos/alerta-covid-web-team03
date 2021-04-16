@@ -1,5 +1,5 @@
 require "application_system_test_case"
-
+#Test for PlaceHistoriesTest
 class PlaceHistoriesTest < ApplicationSystemTestCase
   setup do
     @place_history = place_histories(:one)

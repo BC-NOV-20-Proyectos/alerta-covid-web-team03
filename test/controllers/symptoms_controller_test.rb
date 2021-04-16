@@ -1,5 +1,5 @@
 require "test_helper"
-
+#Test for SymptomsControllerTest
 class SymptomsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @symptom = symptoms(:one)
