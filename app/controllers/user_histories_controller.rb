@@ -61,6 +61,6 @@ class UserHistoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_history_params
-      params.require(:user_history).permit(:date, :user_id)
+      params.require(:user_history).permit(:date)
     end
 end
