@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_225731) do
+
+ActiveRecord::Schema.define(version: 2021_04_16_002522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +52,16 @@ ActiveRecord::Schema.define(version: 2021_04_15_225731) do
     t.string "jti", null: false
     t.datetime "exp", null: false
     t.index ["jti"], name: "index_jwt_denylist_on_jti"
+  end
+
+  create_table "place_histories", force: :cascade do |t|
+    t.datetime "date"
+    t.bigint "user_id", null: false
+    t.bigint "place_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["place_id"], name: "index_place_histories_on_place_id"
+    t.index ["user_id"], name: "index_place_histories_on_user_id"
   end
 
   create_table "places", force: :cascade do |t|
@@ -135,6 +146,8 @@ ActiveRecord::Schema.define(version: 2021_04_15_225731) do
   add_foreign_key "allowlisted_jwts", "users", column: "users_id", on_delete: :cascade
   add_foreign_key "area_histories", "users"
   add_foreign_key "areas", "institutions"
+  add_foreign_key "place_histories", "places"
+  add_foreign_key "place_histories", "users"
   add_foreign_key "places", "institutions"
   add_foreign_key "user_histories", "users"
   add_foreign_key "user_history_details", "symptoms"

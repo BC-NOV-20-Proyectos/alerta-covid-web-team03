@@ -1,5 +1,5 @@
 require "application_system_test_case"
-
+#Test for TestCovidsTest
 class TestCovidsTest < ApplicationSystemTestCase
   setup do
     @test_covid = test_covids(:one)

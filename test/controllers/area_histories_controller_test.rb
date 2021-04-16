@@ -1,5 +1,5 @@
 require "test_helper"
-
+#Test for AreaHistoriesControllerTest
 class AreaHistoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @area_history = area_histories(:one)

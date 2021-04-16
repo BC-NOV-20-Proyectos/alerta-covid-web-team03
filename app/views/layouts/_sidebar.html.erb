@@ -25,39 +25,46 @@
             <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
             <% if current_user.has_role? :admin %>
-              <li class="nav-item">
-                <a href="/admin_users" class="nav-link">
-                  <i class="nav-icon fas fa-user-friends"></i>
-                  <p>
-                    Users
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/institutions" class="nav-link">
-                  <i class="nav-icon fas fa-hotel"></i>
-                  <p>
-                    Institutions
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/areas" class="nav-link">
-                  <i class="nav-icon fas fa-map-marker-alt"></i>
-                  <p>
-                    Areas
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/symptoms" class="nav-link">
-                  <i class="nav-icon fas fa-viruses"></i>
-                  <p>
-                    Symptoms
-                  </p>
-                </a>
-              </li>
-            
+            <li class="nav-item">
+              <a href="/admin_users" class="nav-link">
+                <i class="nav-icon fas fa-user-friends"></i>
+                <p>
+                  Users
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/institutions" class="nav-link">
+                <i class="nav-icon fas fa-hotel"></i>
+                <p>
+                  Institutions
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/areas" class="nav-link">
+                <i class="nav-icon fas fa-sitemap"></i>
+                <p>
+                  Areas
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+            <a href="/places" class="nav-link">
+              <i class="nav-icon fas fa-map-marker-alt"></i>
+              <p>
+                Places
+              </p>
+            </a>
+          </li>
+            <li class="nav-item">
+              <a href="/symptoms" class="nav-link">
+                <i class="nav-icon fas fa-viruses"></i>
+                <p>
+                  Symptoms
+                </p>
+              </a>
+            </li>
             <% end %>
             <li class="nav-item has-treeview menu-close">
               <a href="#" class="nav-link">

@@ -13,11 +13,13 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions'  }
   resources :admin_users
   resources :places
+  resources :place_histories
 
   post 'institutions/search', :to => 'institutions#search'
   post 'areas/search', :to => 'areas#search'
   post 'symptoms/search', :to => 'symptoms#search'
   post 'admin_users/search', :to => 'admin_users#search'
+  post 'places/search', :to => 'places#search'
 
   
   namespace :api, defaults: { format: :json } do
@@ -29,6 +31,7 @@ Rails.application.routes.draw do
 	  resources :areas
 	  resources :symptoms
 	  resources :institutions
+    resources :place_histories
     devise_for :users,
     defaults: { format: :json },
     path: '',
