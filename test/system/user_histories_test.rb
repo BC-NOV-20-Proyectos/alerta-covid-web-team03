@@ -1,5 +1,5 @@
 require "application_system_test_case"
-
+#Test for UserHistoriesTest
 class UserHistoriesTest < ApplicationSystemTestCase
   setup do
     @user_history = user_histories(:one)
