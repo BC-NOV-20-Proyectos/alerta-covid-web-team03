@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :incidents
   get 'errors/not_found'
   get 'errors/internal_server_error'
   get 'home/index'
