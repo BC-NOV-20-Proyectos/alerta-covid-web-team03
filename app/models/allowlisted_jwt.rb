@@ -1,2 +1,0 @@
-class AllowlistedJwt < ApplicationRecord
-end
