@@ -1,5 +1,5 @@
 require "application_system_test_case"
-
+#Test for AreasTest
 class AreasTest < ApplicationSystemTestCase
   setup do
     @area = areas(:one)

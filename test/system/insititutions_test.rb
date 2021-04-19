@@ -1,5 +1,5 @@
 require "application_system_test_case"
-
+#Test for InsititutionsTest
 class InsititutionsTest < ApplicationSystemTestCase
   setup do
     @insititution = insititutions(:one)

@@ -1,5 +1,5 @@
 require "application_system_test_case"
-
+#Test for PlacesTest
 class PlacesTest < ApplicationSystemTestCase
   setup do
     @place = places(:one)

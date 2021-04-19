@@ -1,5 +1,5 @@
 require "test_helper"
-
+#Test for InsititutionsControllerTest
 class InsititutionsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @insititution = insititutions(:one)

@@ -1,5 +1,5 @@
 require "test_helper"
-
+#Test for UserHistoriesControllerTest
 class UserHistoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user_history = user_histories(:one)

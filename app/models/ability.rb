@@ -14,6 +14,8 @@ class Ability
         can :read, Area
         can :read, Symptom
         can :manage, AreaHistory
+        can :read, Place
+        can :manage, PlaceHistory
       end
     #
     # The first argument to `can` is the action you are giving the user

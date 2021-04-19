@@ -1,3 +1,4 @@
+#Model for Place
 require 'rqrcode'
 class Place < ApplicationRecord
   belongs_to :institution
