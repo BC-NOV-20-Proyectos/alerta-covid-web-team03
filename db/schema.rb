@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2021_04_16_002522) do
 
   # These are extensions that must be enabled in order to support this database
@@ -53,6 +52,7 @@ ActiveRecord::Schema.define(version: 2021_04_16_002522) do
     t.datetime "exp", null: false
     t.index ["jti"], name: "index_jwt_denylist_on_jti"
   end
+
 
   create_table "place_histories", force: :cascade do |t|
     t.datetime "date"
