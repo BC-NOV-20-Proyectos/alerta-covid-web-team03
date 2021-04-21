@@ -1,0 +1,27 @@
+<div class="login-box login-page mx-auto w-100" >
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">
+        <h2>Reset your password.</h2>
+      </p>
+      <%= form_with model: @user, url: password_reset_edit_path(token: params[:token]) do |form| %>
+        <div class="mb-3">
+          <%= form.label :password %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= form.password_field :password, autocomplete: "new-password" %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :password_confirmation %><br />
+          <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+        <div class="mb-3">
+          <%= form.submit "Reset Password", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+      <!-- /.login-card-body -->
+    </div>
+  </div>
+  <!-- /.login-box -->

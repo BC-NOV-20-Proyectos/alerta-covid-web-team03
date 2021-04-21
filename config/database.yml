@@ -23,16 +23,16 @@ default: &default
 
 development:
   <<: *default
-  database: covidapp_development
+  database: covidapp_development3
   #username: root
   #password: teamgodzilla**00
   #host: covid_db
-  host: localhost
+  #host: localhost
   #username: fego
   #password: kurosu
 
-  username: postgres 
-  password: password
+  #username: postgres 
+  #password: password
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: covidapp_test
+  database: covidapp_test3
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: covidapp_production
+  database: covidapp_production3
   username: covidapp
   password: <%= ENV['COVIDAPP_DATABASE_PASSWORD'] %>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :areas
   resources :symptoms
   resources :institutions
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions'  }
   resources :admin_users
   resources :places
   resources :place_histories
@@ -46,8 +46,18 @@ Rails.application.routes.draw do
     resources :places
 
     post 'institutions/search', :to => 'institutions#search'
+
+    get "password/reset", to: "password_resets#new"
+    post "password/reset", to: "password_resets#create"
+    get "password/reset/edit", to: "password_resets#edit"
+    patch "password/reset/edit", to: "password_resets#update"
     end
   end
+
+  get "password/reset", to: "password_resets#new"
+  post "password/reset", to: "password_resets#create"
+  get "password/reset/edit", to: "password_resets#edit"
+  patch "password/reset/edit", to: "password_resets#update"
 
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all
