@@ -67,35 +67,28 @@
             </li>
             <% end %>
             <li class="nav-item has-treeview menu-close">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-book-medical"></i>
-                <p>
-                  Reports
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/reports/user_history" class="nav-link">
-                    <i class="fas fa-notes-medical nav-icon"></i>
-                    <p>User history</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="/reports/area_history" class="nav-link">
-                    <i class="fas fa-map-marker-alt nav-icon"></i>
-                    <p>Area history</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="/reports/test_per_user" class="nav-link">
-                    <i class="fas fa-file-medical-alt nav-icon"></i>
-                    <p>Tests per user</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book-medical"></i>
+              <p>
+                Reports
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/reports/user_reports" class="nav-link">
+                  <i class="fas fa-notes-medical nav-icon"></i>
+                  <p>People reports</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/reports/area_reports" class="nav-link">
+                  <i class="fas fa-map-marker-alt nav-icon"></i>
+                  <p>Place reports</p>
+                </a>
+              </li>
+            </ul>
+          </li>
             <li class="nav-item">
               <%= link_to  destroy_user_session_path, :method => :delete, class: 'nav-link' do %>
               <i class="nav-icon fas fa-sign-out-alt"></i>

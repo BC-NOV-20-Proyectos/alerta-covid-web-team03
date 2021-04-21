@@ -18,7 +18,7 @@ class API::V1::IncidentsController < API::V1::ApplicationAPIController
       if @incident.save
         render json: @incident, status: 201
       else
-       render json: @area_history.errors, status: 401
+       render json: @incident.errors, status: 401
       end
   end
 

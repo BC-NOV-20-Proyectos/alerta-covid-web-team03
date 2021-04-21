@@ -2911,7 +2911,7 @@ datatables.net@1.10.24, datatables.net@^1.10.15, datatables.net@^1.10.20:
   dependencies:
     jquery ">=1.7"
 
-daterangepicker@^3.0.5:
+daterangepicker@^3.0.5, daterangepicker@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/daterangepicker/-/daterangepicker-3.1.0.tgz#718d606614331df3e774c9aba82ccd8838d45da1"
   integrity sha512-DxWXvvPq4srWLCqFugqSV+6CBt/CvQ0dnpXhQ3gl0autcIDAruG1PuGG3gC7yPRNytAD1oU1AcUOzaYhOawhTw==
@@ -5421,7 +5421,7 @@ moment-timezone@^0.5.31:
   dependencies:
     moment ">= 2.9.0"
 
-"moment@>= 2.9.0", moment@^2.10.2, moment@^2.24.0, moment@^2.29.0, moment@^2.9.0:
+"moment@>= 2.9.0", moment@^2.10.2, moment@^2.24.0, moment@^2.29.0, moment@^2.29.1, moment@^2.9.0:
   version "2.29.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
   integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
