@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 2021_04_16_002522) do
     t.index ["jti"], name: "index_jwt_denylist_on_jti"
   end
 
-
   create_table "place_histories", force: :cascade do |t|
     t.datetime "date"
     t.bigint "user_id", null: false
