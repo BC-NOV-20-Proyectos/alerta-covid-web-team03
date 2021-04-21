@@ -1,0 +1,24 @@
+<% @result.each do |result| %>
+  <tr>
+    <td><%= result["institution"] %></td>
+    <td><%= result["area"] %></td>
+    <td><%= result["fullname"] %></td>
+    <td class="text-center">
+      <% if result["had_symptoms"]  %>
+        <div class="badge badge-pill badge-success"><i class="fas fa-head-side-cough"></i></div>
+      <% else %>
+        <div class="badge badge-pill badge-danger"><i class="fas fa-head-side-cough-slash"></i></div>
+      <% end %> 
+    </td>
+    <td class="text-center">
+      <% if result["result"]  %>
+        <div class="badge badge-pill badge-success"><i class="fas fa-viruses"></i></div>
+      <% end %> 
+    </td>
+    <td class="text-center">
+      <% unless result["result"]  %>
+        <div class="badge badge-pill badge-danger"><i class="fas fa-virus-slash"></i></div>
+      <% end %> 
+    </td>
+  </tr>
+<% end %>
