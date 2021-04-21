@@ -32,6 +32,7 @@ Rails.application.routes.draw do
 	  resources :symptoms
 	  resources :institutions
     resources :place_histories
+    resources :incidents
     devise_for :users,
     defaults: { format: :json },
     path: '',
