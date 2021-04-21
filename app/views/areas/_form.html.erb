@@ -19,13 +19,6 @@
             <%= f.input :institution_id do %> <%= f.select :institution_id, Institution.all.map { |r| [r.description, r.id] }, include_blank: false %> 
             <% end %>
           </div>
-          <div class="form-inputs form-group">
-           
-            <% if @area.qrcode? %>
-              <%= f.label :qrcode %>
-              <img src="data:image/png;base64, <%=@area.qrcode %>" alt="Red dot" />
-            <% end %>
-          </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
