@@ -11,6 +11,14 @@ class ReportsController < ApplicationController
     
   end
 
+  def area_reports
+    @result = Area.area_report
+  end
+
+  def search_area_reports
+    @result = Area.area_report(get_date[0], get_date[1])
+
+  end
 
 
   private 
