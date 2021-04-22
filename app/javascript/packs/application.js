@@ -12,6 +12,26 @@ import 'bootstrap';
 import '../stylesheets/application';
 require('admin-lte');
 import "@fortawesome/fontawesome-free/js/all";
+import toastr from 'toastr'
+window.toastr = toastr
+
+
+toastr.options = {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": true,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": true,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
 
 
 Rails.start()
