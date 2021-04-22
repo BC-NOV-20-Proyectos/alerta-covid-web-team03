@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   post 'places/search', :to => 'places#search'
   get 'reports/user_reports'
   get '/reports/search_user_reports' => "reports#search_user_reports"
+  get 'reports/area_reports'
+  get '/reports/search_area_reports' => "reports#search_area_reports"
   
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
