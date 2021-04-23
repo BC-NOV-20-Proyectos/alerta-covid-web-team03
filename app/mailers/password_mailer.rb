@@ -10,4 +10,11 @@ class PasswordMailer < ApplicationMailer
   
       mail to: params[:user].email
     end
+
+    def alert(places_tk, user_email)
+      @places_tk = places_tk
+      @user_email = user_email
+
+      mail(to: @user_email, subject: 'Covid Alert!')
+    end
   end

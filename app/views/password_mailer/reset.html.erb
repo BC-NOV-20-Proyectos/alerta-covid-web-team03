@@ -1,7 +1,28 @@
-Hi <%= params[:user].email %>,
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
 
-Someone requested a reset of your password.
+  <body style="margin: 0; padding: 0;">
 
-If this was you, click the link to reset your password. The link will expire automatically in 15 minutes.
+    <table style="max-width: 680px; border-spacing: 0!important;">
+      <tbody>
+        <tr>
+          <td style="padding:20px;">
+            <img src="https://i.imgur.com/mEtcLVm.jpeg" width="260" height="260">
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-<%= link_to "Reset password", password_reset_edit_url(token: @token) %>
+    Hi <%= params[:user].email %>,
+
+    Someone requested a reset of your password.
+
+    If this was you, click the link to reset your password. The link will expire automatically in 15 minutes.
+
+    <%= link_to "Reset password", password_reset_edit_url(token: @token) %>
+
+  </body>
+</html>
