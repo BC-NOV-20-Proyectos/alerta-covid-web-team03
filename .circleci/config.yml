@@ -19,3 +19,9 @@ jobs:
       - run:
          name: yarn install
          command: yarn install --check-files
+      - run:
+         name: db create
+         command: bundle exec rake db:create
+      - run:
+         name: db migrate
+         command: bundle exec rake db:migrate
