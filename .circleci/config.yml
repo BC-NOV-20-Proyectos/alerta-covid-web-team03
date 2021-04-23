@@ -12,4 +12,5 @@ jobs:
       - checkout
       - ruby/install-deps
       - run:
-         name: yarn install --check-files
+         name: yarn install
+         command: yarn install --check-files
