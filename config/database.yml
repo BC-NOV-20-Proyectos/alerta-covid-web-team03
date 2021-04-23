@@ -57,6 +57,7 @@ development:
 test:
   <<: *default
   database: covidapp_test3
+  host: localhost
   username: tester
   password: test_pass
 
