@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+              <div class="card-tools">
+                <ul class="nav nav-pills ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#revenue-chart" data-toggle="tab">List</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#sales-chart" data-toggle="tab">Graph</a>
+                    </li>
+                </ul>
+              </div>
+                <div class="card-tools1">
+                  <div class="input-group input-group-sm" style="width: 210px;">
+                    <%= form_tag(reports_search_area_reports_path, method: "get", remote: true, authenticity_token: true, role: "form",class: "form") do %>
+                      <%= text_field_tag('date', params[:search], placeholder: '', class: 'form-control float-left', id: 'reservation') %>
+                      <div class="input-group-append">
+                      <%= submit_tag("Search by date", class:"btn btn-default") %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="institution-modal">
+               
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>Institution</th>
+                      <th>Area</th>
+                      <th class="text-center">Symptomatic</th>
+                      <th class="text-center">Positive covid</th>
+                      <th class="text-center">Negative covid</th>
+                    </tr>
+                  </thead>
+                  <tbody id="area-reports-body">
+                   <%= render 'search_area_reports'%>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+               
+              </div>
+            </div>
+            <!-- /.card -->
+          </div>
+</div>
+<%= javascript_pack_tag 'user_reports'%>

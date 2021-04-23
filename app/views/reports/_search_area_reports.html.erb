@@ -1,0 +1,9 @@
+<% @result.each do |result| %>
+  <tr>
+    <td><%= result["institution"] %></td>
+    <td><%= result["area"] %></td>
+    <td class="text-center"><%= result["symptomatic"] %></td>
+    <td class="text-center"><%= result["positive_covid"] %></td>
+    <td class="text-center"><%= result["negative_covid"] %></td>
+  </tr>
+<% end %>

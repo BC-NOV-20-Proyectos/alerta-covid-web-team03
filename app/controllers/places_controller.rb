@@ -42,7 +42,7 @@ class PlacesController < ApplicationController
   # PATCH/PUT /places/1 or /places/1.json
   def update
     respond_to do |format|
-      if @place.update(area_params)
+      if @place.update(place_params)
         respond_if_is_true_web(format, places_url, 'Place was successfully updated.', :show, :ok, @place)
       else
         respond_if_is_false_web(format, :new, :unprocessable_entity, @place.errors, :unprocessable_entity)
