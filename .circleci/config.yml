@@ -7,6 +7,11 @@ jobs:
     docker:
       - image: circleci/ruby:2.7.2-node
       - image: circleci/postgres
+        environment:
+          POSTGRES_USER: tester
+          POSTGRES_PASSWORD: test_pass
+    environment:
+      RAILS_ENV: test
     executor: ruby/default
     steps:
       - checkout

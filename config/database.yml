@@ -27,7 +27,6 @@ development:
   #username: root
   #password: teamgodzilla**00
   #host: covid_db
-  #host: localhost
   #username: fego
   #password: kurosu
 
@@ -58,6 +57,9 @@ development:
 test:
   <<: *default
   database: covidapp_test3
+  username: tester
+  password: test_pass
+
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
