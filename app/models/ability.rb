@@ -9,7 +9,7 @@ class Ability
       user ||= User.new # guest user (not logged in)
       if user.has_role? :admin
         can :manage, :all
-      else
+      elsif user.has_role? :normal
         can :read, Institution
         can :read, Area
         can :read, Symptom
@@ -17,7 +17,6 @@ class Ability
         can :read, Place
         can :manage, PlaceHistory
       end
-    #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
