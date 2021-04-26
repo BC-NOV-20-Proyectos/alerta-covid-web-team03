@@ -1,15 +1,17 @@
 <% @symptoms.each do |symptom| %>
   <tr>
     <td><%= symptom.description %></td>
-    <td><%= link_to edit_symptom_path(symptom), remote: true do %>
-      <i class="far fa-edit"></i>
-      <span>Edit</span>
-    <% end %> 
-    <%= link_to symptom, method: :delete, data: 
-    { confirm: 'Are you sure?' } do %>
-        <i class="fas fa-user-times"></i>
-      <span>Delete</span>
-    <% end %>
-    </td>
+    <%if current_user.has_role? :admin%>
+      <td><%= link_to edit_symptom_path(symptom), remote: true do %>
+        <i class="far fa-edit"></i>
+        <span>Edit</span>
+      <% end %> 
+      <%= link_to symptom, method: :delete, data: 
+      { confirm: 'Are you sure?' } do %>
+          <i class="fas fa-user-times"></i>
+        <span>Delete</span>
+      <% end %>
+      </td>
+    <%end%>
   </tr>
 <% end %>

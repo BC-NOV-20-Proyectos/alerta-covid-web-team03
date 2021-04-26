@@ -3,16 +3,18 @@
     <td><%= place.institution.description %></td>
     <td><%= place.description %></td>
     <td><img src="data:image/png;base64, <%= place.qr_code %>" alt="Red dot" /></td>
-
-    <td><%= link_to edit_place_path(place), remote: true do %>
-      <i class="far fa-edit"></i>
-      <span>Edit</span>
-    <% end %> 
-    <%= link_to place, method: :delete, data: 
-    { confirm: 'Are you sure?' } do %>
-        <i class="fas fa-user-times"></i>
-      <span>Delete</span>
-    <% end %>
-    </td>
+  
+    <%if current_user.has_role? :admin%>
+      <td><%= link_to edit_place_path(place), remote: true do %>
+        <i class="far fa-edit"></i>
+        <span>Edit</span>
+      <% end %> 
+      <%= link_to place, method: :delete, data: 
+      { confirm: 'Are you sure?' } do %>
+          <i class="fas fa-user-times"></i>
+        <span>Delete</span>
+      <% end %>
+      </td>
+    <%end%>
   </tr>
 <% end %>

@@ -24,6 +24,10 @@
             <%= f.input :email, class: 'form-control' %>
           </div>
           <div class="form-inputs form-group">
+            <label for="admin"> change rol: </label>
+            <input type="radio" id="admin" name="admin">
+          </div>
+          <div class="form-inputs form-group">
             <%= f.input :institution_id do %> <%= f.select :institution_id, Institution.all.map { |r| [r.description, r.id] }, include_blank: false %> 
             <% end %>
           </div>
