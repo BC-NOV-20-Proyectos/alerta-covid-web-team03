@@ -7,8 +7,7 @@ class AdminUsersController < ApplicationController
   end
 
   def index
-    #investigar para que sirve el .page y .per
-    @users = User.all.page(params[:page]).per(50)
+    @users = User.all.Order_by_id.page(params[:page]).per(5)
   end
 
   def search

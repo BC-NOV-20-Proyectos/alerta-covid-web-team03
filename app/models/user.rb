@@ -10,6 +10,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist
 
+  scope :Order_by_id, -> {order("id asc")}
+
   def self.search(text)
     if text.blank?  # blank? covers both nil and empty string
       all
