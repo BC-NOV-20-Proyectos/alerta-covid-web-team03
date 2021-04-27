@@ -3,15 +3,19 @@
   <tr>
     <td><%= institution.description %></td>
     <%if current_user.has_role? :admin%>
-      <td><%= link_to edit_institution_path(institution), remote: true do %>
-        <i class="far fa-edit"></i>
-        <span>Edit</span>
-      <% end %> 
-      <%= link_to institution, method: :delete, data: 
-      { confirm: 'Are you sure?' } do %>
-          <i class="fas fa-user-times"></i>
-        <span>Delete</span>
-      <% end %>
+      <td>
+        <div class="btn btn-primary">   
+          <%= link_to edit_institution_path(institution), remote: true, style: 'color: #fff;' do %>
+            <i class="far fa-edit"></i>
+            <span>Edit</span>
+          <% end %> 
+        </div>
+        <div class="btn btn-primary"> 
+          <%= link_to institution, method: :delete, data: { confirm: 'Are you sure?' } , style: 'color: #fff;' do %>
+              <i class="fas fa-user-times"></i>
+            <span>Delete</span>
+          <% end %>
+        </div>
       </td>
     <%end%>
   </tr>
