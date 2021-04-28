@@ -6,14 +6,19 @@
     <td><%= user.control_number %></td>
     <td><%= user.institution.description%></td>
     <td><%= user.area.description%></td>
-    <% # @institutions.each do |inst|%>
-    
-    <% # end%>
-    <% # datos = Institution.joins(:description).where("institution_id" => user.institution_id)  %>
-    <% # datos2 = User.joins(:institutions)%>
-    
-    <td><i class="far fa-edit"></i><%= link_to 'Edit', edit_admin_user_path(user), remote: true %>
-    &nbsp <i class="fas fa-user-times"></i> <%= link_to 'Delete', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% user.roles.each do |rol| %>
+      <td><%= rol.name if rol.name? %>
+    <% end %>
+
+    <td>
+      <div class="btn btn-primary"> 
+        <i class="fas fa-edit"></i><%= link_to 'Edit', edit_admin_user_path(user), remote: true, style: 'color:#FFFFFF;' %>
+      </div>
+      &nbsp 
+      <div class="btn btn-primary"> 
+        <i class="fas fa-user-times"></i> <%= link_to 'Delete', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, style: 'color:#FFFFFF;' %>
+      </div>
+    </td>
   </tr>
 <% end %>
 

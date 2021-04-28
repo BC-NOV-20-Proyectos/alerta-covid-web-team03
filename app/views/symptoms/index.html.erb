@@ -1,10 +1,11 @@
-<p id="notice"><%= notice %></p>
 <div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
               <div class="card-tools">
-              <a class="btn btn-success create-button" data-remote="true" href="#" data-toggle="modal" data-target="#symptom-modal">New Symptom</a>
+              <% if current_user.has_role? :admin  %>
+                <a class="btn btn-success create-button" data-remote="true" href="#" data-toggle="modal" data-target="#symptom-modal">New Symptom</a>
+              <%end%>
                 </div>
                 <div class="card-tools1">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -26,7 +27,9 @@
                   <thead>
                     <tr>
                       <th>Description</th>
-                      <th>Actions</th>
+                      <%if current_user.has_role? :admin%>
+                        <th>Actions</th>
+                      <%end%>
                     </tr>
                   </thead>
                   <tbody id="symptoms-table-body">

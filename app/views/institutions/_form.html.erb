@@ -13,13 +13,13 @@
       </div>
       <div class="modal-body">
         <div class="form-inputs form-group">
-        <%= f.input :description, class: 'form-control' %>
+        <%= f.input :description, input_html: { class: "form-control " } %>
       </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <%= f.submit "Save institution", :class => 'btn btn-primary create-button' %>
-      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit "Save institution", :class => 'btn btn-primary create-button' %>
+        </div>
     </div>
     <% end %>
   </div>

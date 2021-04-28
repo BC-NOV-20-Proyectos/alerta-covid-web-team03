@@ -2,17 +2,23 @@
   <tr>
     <td><%= area.description %></td>
     <td><%= area.institution.description %></td>
-    <td><img src="data:image/png;base64, <%= area.qrcode %>" alt="Red dot" /></td>
 
-    <td><%= link_to edit_area_path(area), remote: true do %>
-      <i class="far fa-edit"></i>
-      <span>Edit</span>
-    <% end %> 
-    <%= link_to area, method: :delete, data: 
-    { confirm: 'Are you sure?' } do %>
-        <i class="fas fa-user-times"></i>
-      <span>Delete</span>
-    <% end %>
-    </td>
+    <%if current_user.has_role? :admin%>
+      <td>
+        <div class="btn btn-primary">   
+          <%= link_to edit_area_path(area), remote: true, style: 'color: #fff;' do %>
+            <i class="far fa-edit"></i>
+            <span>Edit</span>
+          <% end %> 
+        </div>
+
+        <div class="btn btn-primary">   
+          <%= link_to area, method: :delete, data: { confirm: 'Are you sure?' }, style: 'color: #fff;' do %>
+              <i class="fas fa-user-times"></i>
+            <span>Delete</span>
+          <% end %>
+        </div>
+      </td>
+    <%end%>
   </tr>
 <% end %>

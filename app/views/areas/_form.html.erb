@@ -13,17 +13,11 @@
       </div>
       <div class="modal-body">
           <div class="form-inputs form-group">
-            <%= f.input :description, class: 'form-control' %>
+            <%= f.input :description, input_html: { class: "form-control " } %>
           </div>
           <div class="form-inputs form-group">
-            <%= f.input :institution_id do %> <%= f.select :institution_id, Institution.all.map { |r| [r.description, r.id] }, include_blank: false %> 
-            <% end %>
-          </div>
-          <div class="form-inputs form-group">
-           
-            <% if @area.qrcode? %>
-              <%= f.label :qrcode %>
-              <img src="data:image/png;base64, <%=@area.qrcode %>" alt="Red dot" />
+            <%= f.input :institution_id, input_html: { class: "form-group " } do %> 
+              <%= f.select :institution_id, Institution.all.map { |r| [r.description, r.id] }, {}, { class: "form-control" } %> 
             <% end %>
           </div>
       </div>

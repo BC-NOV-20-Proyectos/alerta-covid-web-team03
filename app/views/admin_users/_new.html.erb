@@ -12,30 +12,34 @@
       </div>
       <div class="modal-body">
           <div class="form-inputs form-group">
-            <%= f.input :name, class: 'form-control'  %>
+            
+            <%= f.input :name, input_html: { class: "form-control " }  %>
           </div>
           <div class="form-inputs form-group">
-            <%= f.input :lasname, class: 'form-control'  %>
+            <%= f.input :lasname, label: "last name", input_html: { class: "form-control " }  %>
           </div>
           <div class="form-inputs form-group">
-            <%= f.input :control_number, class: 'form-control' %>
+            <%= f.input :email, input_html: { class: "form-control " } %>
           </div>
           <div class="form-inputs form-group">
-            <%= f.input :email, class: 'form-control' %>
+            <label for="admin">Admin</label>
+            <input type="radio" id="admin" name="admin">
           </div>
-          <div class="form-inputs form-group">
-            <%= f.input :institution_id do %> <%= f.select :institution_id, Institution.all.map { |r| [r.description, r.id] }, include_blank: false %> 
+          <div class="form-inputs ">
+            <%= f.input :institution_id, input_html: { class: "form-group " } do %>
+              <%= f.select :institution_id, Institution.all.map { |r| [r.description, r.id] }, {}, { class: "form-control" } %> 
+            <% end %>
+          </div>
+          <div class="form-inputs form-group form-select ">
+            <%= f.input :area_id, input_html: { class: "form-group " } do %>
+              <%= f.select :area_id, Area.all.map {|r| [r.description, r.id] }, {}, { class: "form-control" } %> 
             <% end %>
           </div>
           <div class="form-inputs form-group">
-            <%= f.input :area_id do %> <%= f.select :area_id, Area.all.map { |r| [r.description, r.id] }, include_blank: false %> 
-            <% end %>
+            <%= f.input :password, input_html: { class: "form-control " } %>
           </div>
           <div class="form-inputs form-group">
-            <%= f.input :password, class: 'form-control' %>
-          </div>
-          <div class="form-inputs form-group">
-            <%= f.input :password_confirmation, class: 'form-control' %>
+            <%= f.input :password_confirmation, input_html: { class: "form-control " } %>
           </div>
       </div>
       <div class="modal-footer">

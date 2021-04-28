@@ -20,7 +20,10 @@ Rails.application.routes.draw do
   post 'symptoms/search', :to => 'symptoms#search'
   post 'admin_users/search', :to => 'admin_users#search'
   post 'places/search', :to => 'places#search'
-
+  get 'reports/user_reports'
+  get '/reports/search_user_reports' => "reports#search_user_reports"
+  get 'reports/area_reports'
+  get '/reports/search_area_reports' => "reports#search_area_reports"
   
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
@@ -32,6 +35,7 @@ Rails.application.routes.draw do
 	  resources :symptoms
 	  resources :institutions
     resources :place_histories
+    resources :incidents
     devise_for :users,
     defaults: { format: :json },
     path: '',

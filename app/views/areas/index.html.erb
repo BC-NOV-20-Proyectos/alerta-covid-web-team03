@@ -1,10 +1,11 @@
-<p id="notice"><%= notice %></p>
 <div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
               <div class="card-tools">
-              <a class="btn btn-success create-button" data-remote="true" href="#" data-toggle="modal" data-target="#area-modal">New Area</a>
+              <% if current_user.has_role? :admin  %>
+                <a class="btn btn-success create-button" data-remote="true" href="#" data-toggle="modal" data-target="#area-modal">New Area</a>
+              <%end%>
                 </div>
                 <div class="card-tools1">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -27,7 +28,6 @@
                     <tr>
                       <th>Area</th>
                       <th>Institution</th>
-                      <th>QR Code</th>
                     </tr>
                   </thead>
                   <tbody id="areas-table-body">

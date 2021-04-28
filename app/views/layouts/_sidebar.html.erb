@@ -24,78 +24,63 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
-            <% if current_user.has_role? :admin %>
+            <% if current_user.has_role? :admin  %>
+              <li class="nav-item">
+                <div class="nav-link">
+                  <i class="nav-icon fas fa-user-friends"></i>
+                  <%= link_to "Users", admin_users_path%>
+                </div>
+              </li>
+            <%end%>
+            <% if current_user.has_role? :normal or current_user.has_role? :admin %>
             <li class="nav-item">
-              <a href="/admin_users" class="nav-link">
-                <i class="nav-icon fas fa-user-friends"></i>
-                <p>
-                  Users
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="/institutions" class="nav-link">
+              <div class="nav-link">
                 <i class="nav-icon fas fa-hotel"></i>
-                <p>
-                  Institutions
-                </p>
-              </a>
+                <%= link_to "Institutions", institutions_path%>
+              </div>
             </li>
             <li class="nav-item">
-              <a href="/areas" class="nav-link">
+              <div class="nav-link">
                 <i class="nav-icon fas fa-sitemap"></i>
-                <p>
-                  Areas
-                </p>
-              </a>
+                <%= link_to "Areas", areas_path%>
+              </div>
             </li>
             <li class="nav-item">
-            <a href="/places" class="nav-link">
+            <div class="nav-link">
               <i class="nav-icon fas fa-map-marker-alt"></i>
+              <%= link_to "Places", places_path%>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link">
+              <i class="nav-icon fas fa-viruses"></i>
+              <%= link_to "Symtoms", symptoms_path%>
+            </div>
+          </li>
+          <% end %>
+            <li class="nav-item has-treeview menu-close">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book-medical"></i>
               <p>
-                Places
+                Reports
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <div class="nav-link">
+                  <i class="fas fa-notes-medical nav-icon"></i>
+                  <%= link_to "People reports", reports_user_reports_path%>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="/reports/area_reports" class="nav-link">
+                  <i class="fas fa-map-marker-alt nav-icon"></i>
+                  <p>Place reports</p>
+                </a>
+              </li>
+            </ul>
           </li>
-            <li class="nav-item">
-              <a href="/symptoms" class="nav-link">
-                <i class="nav-icon fas fa-viruses"></i>
-                <p>
-                  Symptoms
-                </p>
-              </a>
-            </li>
-            <% end %>
-            <li class="nav-item has-treeview menu-close">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-book-medical"></i>
-                <p>
-                  Reports
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/reports/user_history" class="nav-link">
-                    <i class="fas fa-notes-medical nav-icon"></i>
-                    <p>User history</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="/reports/area_history" class="nav-link">
-                    <i class="fas fa-map-marker-alt nav-icon"></i>
-                    <p>Area history</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="/reports/test_per_user" class="nav-link">
-                    <i class="fas fa-file-medical-alt nav-icon"></i>
-                    <p>Tests per user</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            
             <li class="nav-item">
               <%= link_to  destroy_user_session_path, :method => :delete, class: 'nav-link' do %>
               <i class="nav-icon fas fa-sign-out-alt"></i>

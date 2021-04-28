@@ -1,13 +1,13 @@
 #Admin controller for users.
 class AdminUsersController < ApplicationController
-  
+  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :set_role_params, only: [:create, :update]
   def new
     @user = User.new
   end
 
   def index
-    #investigar para que sirve el .page y .per
-    @users = User.all.page(params[:page]).per(50)
+    @users = User.all.Order_by_id.page(params[:page]).per(5)
   end
 
   def search
@@ -15,17 +15,15 @@ class AdminUsersController < ApplicationController
   end
 
   def create
-    #diferencia entre new y create
     @user = User.new(user_params)
-    #buscar como funciona el respont_to
+    @user.control_number = control_number_method
     respond_to do |format|
       if @user.save
-        #para que son el :show y :created | pareametros que son pasados a repond_if_is_true_web
+        set_role(@params_admin)
         respond_if_is_true_web(format, admin_users_path, 'User was successfully created', :show, :created, @user)
       else
         respond_if_is_false_web(format, :new, :unprocessable_entity, @user.errors, :unprocessable_entity)
       end
-
     end
   end
 
@@ -33,13 +31,12 @@ class AdminUsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
+        @params_admin == "on" ? update_rol(@user) : nil
         respond_if_is_true_web(format, admin_users_path, 'User was successfully updated', :show, :created, @user)
       else
         respond_if_is_false_web(format, :new, :unprocessable_entity, @user.errors, :unprocessable_entity)
@@ -48,7 +45,6 @@ class AdminUsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     respond_to do |format|
       format.html { redirect_to admin_users_path, notice: 'user was successfully destroyed.' }
@@ -59,6 +55,33 @@ class AdminUsersController < ApplicationController
   private
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def set_role_params
+    @params_admin = params[:admin]
+  end
+
+  def control_number_method
+    numero = User.last.id + 1
+    result = "21"+ numero.to_s
+    result.to_i
+  end
+
+  def set_role(data)
+    if data == "on"
+      @user.add_role "admin"
+    else
+      @user.add_role "normal"
+    end
+  end
+
+  def update_rol(user)
+    puts user.inspect
+    user.roles.each do |rol|
+      @name_asign = rol.name == "admin" ? "normal" : "admin"
+      user.remove_role rol.name.to_sym
+    end
+    user.add_role @name_asign.to_s
   end
 
   def user_params
