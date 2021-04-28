@@ -22,4 +22,3 @@ user.institution = institution
 user.area = area
 user.save!
 
-Symptom.create([{description: 'fever'}, {description: 'cough'}, {description: 'ashes'}])
