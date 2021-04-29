@@ -16,6 +16,7 @@ class Ability
         can :manage, AreaHistory
         can :read, Place
         can :manage, PlaceHistory
+        can :manage, Incident
       end
     # The first argument to `can` is the action you are giving the user
     # permission to do.

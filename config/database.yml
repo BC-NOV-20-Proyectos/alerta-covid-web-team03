@@ -23,16 +23,9 @@ default: &default
 
 development:
   <<: *default
-  database: covidapp_development3
-  #username: root
-  #password: teamgodzilla**00
-  #host: covid_db
-  #host: localhost
-  #username: fego
-  #password: kurosu
-
-  username: postgres 
-  password: password
+  database: covidapp_development1111
+  username: fego 
+  password: kurosu
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
